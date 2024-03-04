@@ -10,3 +10,7 @@
 - `Ctrl+R, Ctrl+A` to debug all tests
 - `Ctrl+.` to invoke Quick Action suggestion 
 - `Ctrl+Alt+Fn+R` to toggle Full Screen mode of RDP window
+- `Ctrl+Alt+L` to toggle from code editor to Solution Explorer
+- `Ctrl+Tab` to toggle between open tabs 
+- `Ctrl+T` to search throughout a project ("Go to all")
+- `Ctrl+T, Alt+/` to search only based on members of a given type
