@@ -1,0 +1,50 @@
+# March 4 Notes
+- Met Jeff & did introductions
+- Got access to VM
+- Set up Git on VM
+- Initialized Git repository
+- Pushed repository to GitHub
+- Created ASP.NET Core web API that exposes an HTTP interface for other programs to use
+- History of C# and .NET
+- Added status endpoint to API
+- Added Test Project and unit tests
+- Added a package using NuGet
+## Key Takeaways
+- Authorize GitHub account from command line: `gh auth login`
+- Create GitHub repo from command line: `gh repo create`
+- native AOT?
+- .NET 6.0 vs. 7.0 vs. 8.0?
+- .NET Project = a unit of compilation
+    - Comparable to a Java .jar
+- C# (think C++++, so the increment of the increment of C)
+    - Developed to bridge gap between Visual Basic and C++
+    - Visual Basic (Object-Based) was too simple and C++ was too complex
+    - Very similar to Java
+- .NET Core - core pieces of .NET needed so it can support cross-platform
+- API - Application Programming Interface
+- TDD - 1/3 of time should be spent writing tests
+- HTTP status codes:
+    - 200s = success
+    - 300s = redirects
+    - 400s = client error
+    - 500s = server error
+- Press `.` key while browsing a GitHub repo to open VS Code editor of current repo in local web browser
+- NuGet - .NET package manager
+## Jeff's Notes
+### Starting the Todos API
+- Created an Asp.Net Core API Project
+    - Did a "minimal" API - that means we aren't using controllers. (We'll do that later).
+    - While we are doing development on our machine, we wanted our API to run at `http://localhost:1337` so we edited the `launchSettings.json` file in the `Properties` folder of the API to use port 1337. We also told it *not* to launch our browser to see the OpenApi documentation
+        - You can still get to that by going to `http://localhost:1337/swagger` in the browser.
+    - we removed the sample code for the Weather Forecast.
+    - We added a `app.MapGet` to handle any http GET requests to the `/status` resource.
+    - We just had it return a 200.
+    - We briefly saw how to "test" it with the Postman tool.
+    - We looked at `.http` files in Visual Studio for manually testing an API.
+    - We learned that the API has to be **running** to send and handle a request (look in the Windows Terminal ([>_])) 
+    - We added an xUnit Test Project.
+    - We looked at tests using the `[Fact]` attribute.
+    - We briefly looked at tests with the `[Theory]` attribute.
+    - We wrote a test using the `HttpClient` to make a call to our API to "automate" what we were doing with the `.http` file so it can be run locally repeatably, and in our pipeline.
+    - We used the Asp.Net TestHost to host the API in our tests to speed them up and make them less "flaky". (no need to run the API first).
+    - We used a little Nuget package called "Alba" to simplify our test.
