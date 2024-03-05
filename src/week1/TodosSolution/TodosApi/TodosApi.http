@@ -4,3 +4,17 @@ GET {{TodosApi_HostAddress}}/status
 Accept: application/json
 
 ###
+
+POST {{TodosApi_HostAddress}}/todos
+Accept: application/json
+Content-Type: application/json
+ 
+{
+    "description": "Buy Beer"
+}
+###
+
+GET {{TodosApi_HostAddress}}/todos
+Accept: application/json
+
+###
