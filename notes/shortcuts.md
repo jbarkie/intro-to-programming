@@ -14,3 +14,5 @@
 - `Ctrl+Tab` to toggle between open tabs 
 - `Ctrl+T` to search throughout a project ("Go to all")
 - `Ctrl+T, Alt+/` to search only based on members of a given type
+- `Ctrl+K, Ctrl+S` to surround code with a snippet
+- `Ctrl+R, R` to rename
