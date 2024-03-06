@@ -9,7 +9,13 @@ public class BankAccount
 
     public void Deposit(decimal amountToDeposit)
     {
+        GuardTransactionAmount(amountToDeposit);
         _currentBalance += amountToDeposit;
+    }
+
+    private void GuardTransactionAmount(decimal transactionAmount)
+    {
+        if (transactionAmount <= 0) throw new InvalidTransactionAmountException();
     }
 
     public decimal GetBalance()
@@ -19,6 +25,8 @@ public class BankAccount
 
     public void Withdraw(decimal amountToWithdraw)
     {
+        if (amountToWithdraw > _currentBalance) throw new OverdraftException();
+        GuardTransactionAmount(amountToWithdraw);
         _currentBalance -= amountToWithdraw;
     }
 }

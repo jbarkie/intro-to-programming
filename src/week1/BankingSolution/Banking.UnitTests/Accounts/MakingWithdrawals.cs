@@ -22,18 +22,31 @@ public class MakingWithdrawals
         var account = new BankAccount();
         var openingBalance = account.GetBalance();
 
-        account.Withdraw(account.GetBalance() + .01M);
+        Assert.Throws<OverdraftException>(() =>
+        {
+            account.Withdraw(account.GetBalance() + .01M);
+        });
 
         Assert.Equal(openingBalance, account.GetBalance());
     }
 
     [Fact]
-    public void AreAnyDecimalsAllowed()
+    public void CanWithdrawAllMoney()
     {
         var account = new BankAccount();
+        var openingBalance = account.GetBalance();
+        account.Withdraw(openingBalance);
 
-        account.Withdraw(-5230);
+    }
 
-        Assert.Equal(5000M, account.GetBalance());
+    [Theory]
+    [InlineData(-1.0)]
+    [InlineData(0)]
+    public void ValidatesAmountForWithdrawal(decimal amountToWithdraw)
+    {
+        var account = new BankAccount();
+        var openingBalance = account.GetBalance();
+        Assert.Throws<InvalidTransactionAmountException>(() => account.Withdraw(amountToWithdraw));
+        Assert.Equal(openingBalance, account.GetBalance());
     }
 }
