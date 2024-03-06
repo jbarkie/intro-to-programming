@@ -1,4 +1,4 @@
-# March 4 Notes
+# Monday, March 4 Notes
 - Met Jeff & did introductions
 - Got access to VM
 - Set up Git on VM
