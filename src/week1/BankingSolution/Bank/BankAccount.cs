@@ -1,14 +1,9 @@
 ﻿namespace Bank;
 
-public class BankAccount
+public class BankAccount(ICalculateBonusesForDeposits bonusCalculator)
 {
-    private ICalculateBonusesForDeposits _bonusCalculator;
+    private ICalculateBonusesForDeposits _bonusCalculator = bonusCalculator;
     private decimal _currentBalance = 5000M;
-
-    public BankAccount(ICalculateBonusesForDeposits bonusCalculator)
-    {
-        _bonusCalculator = bonusCalculator;
-    }
 
     public virtual void Deposit(decimal amountToDeposit)
     {
