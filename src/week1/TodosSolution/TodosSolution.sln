@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodosApi", "TodosApi\TodosApi.csproj", "{BD9800A2-4AF4-4446-B946-BA240E98AB3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodosApi", "TodosApi\TodosApi.csproj", "{BD9800A2-4AF4-4446-B946-BA240E98AB3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodosApi.ContractTests", "TodosApi.ContractTests\TodosApi.ContractTests.csproj", "{F54F82E7-D486-4239-85EC-BDAC1DAE4227}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodosApi.ContractTests", "TodosApi.ContractTests\TodosApi.ContractTests.csproj", "{F54F82E7-D486-4239-85EC-BDAC1DAE4227}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodosApi.UnitTests", "TodosApi.UnitTests\TodosApi.UnitTests.csproj", "{1BCC100D-0782-4DF3-A61E-FBB852DDE257}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F54F82E7-D486-4239-85EC-BDAC1DAE4227}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F54F82E7-D486-4239-85EC-BDAC1DAE4227}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F54F82E7-D486-4239-85EC-BDAC1DAE4227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BCC100D-0782-4DF3-A61E-FBB852DDE257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BCC100D-0782-4DF3-A61E-FBB852DDE257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BCC100D-0782-4DF3-A61E-FBB852DDE257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BCC100D-0782-4DF3-A61E-FBB852DDE257}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
