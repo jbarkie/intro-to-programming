@@ -1,0 +1,28 @@
+# Thursday, March 7 Notes
+- Added a new `ICalculateBonusesForDeposits` interface that defines a `CalculateDepositBonusFor()` method
+- Added a `StandardBonuscalculator` class that implements the `ICalculateBonusesForDeposits` interface and defines a new `CalculateBonus()` method that returns the deposited amount with an added Gold Account bonus if the criteria is met.
+    - Reduces coupling- now, the bonus precentage can be changed from one place without breaking any other code
+- Added test doubles (`DummyBonusCalcultor` and `StubbedBonusCalculator`) for testing if the bonus is applied correctly
+    - Eventually replaced the use of these with the NSubstitute library
+        - NSubstitute - .NET mocking framework used to simplify the creation of mock objects for unit testing
+## Key Takeaways
+- When to use `var` versus specifying the exact type?
+- Coupling - "the strength of relationships between code modules"
+    - Do changes in one place impact/break code in other places?
+    - Goal - complete autonomy
+        - Responsiveness to changing requirements
+    - We use tests to give us feedback about hidden coupling issues
+        - Intentional feedback loop that gives us clues about the evolving nature of our application
+    - When the lifetime of your dependency diverges from the lifetime of your code, you have a form of coupling 
+- External vs. Internal Quality 
+    - External - does it do what it should?
+        - Does it meet stakeholder expectations/requirements?
+        - Affects customers
+    - Internal - how has the system been constructed?
+        - Can we move forward with the project?
+        - Maintainability, portability, re-usability, readability, testability
+        - Affects developers and software itself
+- A class takes responsibility for a function
+    - "Owns" the knowledge - state and behavior
+    - Think of the Single Responsibility Principle
+- Inversion of Control - AKA Dependency Inversion Principle
