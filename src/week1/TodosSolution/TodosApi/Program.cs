@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IFormatDisplayInformation, AdvancedFormatters>();
 
 var connectionString = builder.Configuration.GetConnectionString("todos") ?? throw new Exception("Can't start, need a connection string");
 
@@ -27,8 +28,14 @@ if (app.Environment.IsDevelopment())
 }
 
 // GET /status
-app.MapGet("/status", () =>
+app.MapGet("/status", ([FromServices] IFormatDisplayInformation utils) =>
 {
+    var response = new StatusResponse
+    {
+        CheckedAt = DateTimeOffset.Now,
+        SupportTech = utils.FormatName("Bob", "Smith"),
+        Message = "Looks good"
+    };
     return Results.Ok();
 });
 
