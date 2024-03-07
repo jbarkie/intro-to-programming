@@ -1,4 +1,5 @@
 ﻿using Bank;
+using NSubstitute;
 
 namespace Banking.UnitTests.Accounts;
 public class MakingDeposits
@@ -9,7 +10,7 @@ public class MakingDeposits
     public void MakingADepositIncreasesBalance(decimal amountToDeposit)
     {
         // Given
-        var account = new BankAccount();
+        var account = new BankAccount(Substitute.For<ICalculateBonusesForDeposits>());
         var openingBalance = account.GetBalance();
 
         // When

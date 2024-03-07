@@ -1,4 +1,5 @@
 ﻿using Bank;
+using NSubstitute;
 
 namespace Banking.UnitTests.Accounts;
 public class NewAccounts
@@ -8,7 +9,7 @@ public class NewAccounts
     {
         // WTCYWHY - "Write the code you WISH YOU HAD"
         // Given - I have a new account
-        var account = new BankAccount();
+        var account = new BankAccount(Substitute.For<ICalculateBonusesForDeposits>());
         // When - I get the balance
         decimal openingBalance = account.GetBalance();
         // Then - the account balance is 5000

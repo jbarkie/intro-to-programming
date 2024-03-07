@@ -1,4 +1,5 @@
 ﻿using Bank;
+using NSubstitute;
 
 namespace Banking.UnitTests.Accounts;
 public class MakingWithdrawals
@@ -8,7 +9,7 @@ public class MakingWithdrawals
     [InlineData(2.25)]
     public void MakingAWithdrawalDecreasesTheBalance(decimal amountToWithdraw)
     {
-        var account = new BankAccount();
+        var account = new BankAccount(Substitute.For<ICalculateBonusesForDeposits>());
         var openingBalance = account.GetBalance();
 
         account.Withdraw(amountToWithdraw);
@@ -19,7 +20,7 @@ public class MakingWithdrawals
     [Fact]
     public void OverdraftNotAllowed()
     {
-        var account = new BankAccount();
+        var account = new BankAccount(Substitute.For<ICalculateBonusesForDeposits>());
         var openingBalance = account.GetBalance();
 
         Assert.Throws<OverdraftException>(() =>
@@ -33,7 +34,7 @@ public class MakingWithdrawals
     [Fact]
     public void CanWithdrawAllMoney()
     {
-        var account = new BankAccount();
+        var account = new BankAccount(Substitute.For<ICalculateBonusesForDeposits>());
         var openingBalance = account.GetBalance();
         account.Withdraw(openingBalance);
 
@@ -44,7 +45,7 @@ public class MakingWithdrawals
     [InlineData(0)]
     public void ValidatesAmountForWithdrawal(decimal amountToWithdraw)
     {
-        var account = new BankAccount();
+        var account = new BankAccount(Substitute.For<ICalculateBonusesForDeposits>());
         var openingBalance = account.GetBalance();
         Assert.Throws<InvalidTransactionAmountException>(() => account.Withdraw(amountToWithdraw));
         Assert.Equal(openingBalance, account.GetBalance());
