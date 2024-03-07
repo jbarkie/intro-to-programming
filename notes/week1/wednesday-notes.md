@@ -26,3 +26,32 @@
         - File Systems
         - Clocks
         - Networks
+## Jeff's Notes
+1. Containers - We just started, but what did we use them for?
+    - To run software we don't have on our machine - we used it for Postgres and Adminer (database and admin tool)
+    - What are some benefits of running software in a container for development work?
+        - Dev/Prod parity. We want to run the same things our app will use in each environment. 
+    - What is that `docker-compose.yml` file doing?
+        - Easy way to start up multiple containers at the same time.
+2. HTTP - 
+    - What is a "resource"
+        - A meaningful thing we want to expose from our API
+    - What are the key HTTP methods? What are there *semantics* (i.e. what are you saying to the user of your API when your resource implements each of the HTTP methods)?
+        - In the notes
+    - What is a "representation" in HTTP?
+        - A "point in time" snapshot of the resource in a particular format (e.g. JSON, XML, etc.)
+3. Unit Testing
+    - What is Unit Testing? (What is the "unit")?
+        - Usually a method - in isolation from it's dependencies.
+    - Is Unit Testing *enough*?
+        - No. We need to test WITH the dependencies in place.
+    - What is Test-Driven-Development (TDD)?
+        - What is the "form" of TDD? (what are the steps)
+            - RED->GREEN->Refactor->Repeat
+    - In .NET why do we:
+        - Put our tests in a separate project from the code under test (known as the "System Under Test", or *yech* "SUT")
+            - To keep testing concerns out of our code.
+            - To run them in CI
+        - Why do we keep our Unit Tests separate from other kinds of tests?
+            - To run them at different "stages" of our CI
+            - To optimize fast running Unit Tests from other slower tests.
