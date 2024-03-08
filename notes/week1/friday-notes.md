@@ -2,7 +2,11 @@
 - Covered access types in C# (public, private, protected)
 - Learned about static types
 - Discussed value types vs. reference types
-- Generics & enumerables
+- Enumerables
+- Generics
+- Learned the motivation for delegates
+- Passing by reference in C#
+- .NET Properties, Fields, and their evolution
 ## Key Takeaways
 - Cynefin Model - for approaching complexity & confusion
     - Also look at Rich Hickey's Simple Made Easy (author of Clojure programming language)
@@ -32,4 +36,8 @@
         - Refers to a memory location stored in the heap
         - Built-in reference types: object, dynamic, string
 - Homoiconicity - functional programming - a language is homoiconic if a program written in it can be manipulated as data using the language
-- "Statitcally typed classical object-oriented" ?
+- C# is a "statitcally typed classical object-oriented programming language"
+- In C#, the only thing a variable can refer to is an instance of a class or a struct
+    - Distinguished from other languages - e.g., JavaScript can assign functions to variables
+    - Delegates - object that refers to a method of a reference type variable that can hold a reference to the methods
+        - Similar to the function pointer in C/C++
