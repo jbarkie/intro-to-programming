@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { PageHeaderComponent } from "./components/page-header/page-header.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    <router-outlet />
+    selector: 'app-root',
+    standalone: true,
+    template: `
+    <app-page-header />
+    <main>
+      <p>Our stuff goes here</p>
+    </main>
   `,
-  styles: [],
+    styles: [],
+    imports: [PageHeaderComponent]
 })
 export class AppComponent {
-  title = 'frontend';
 }
