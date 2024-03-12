@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { counterFeature } from './state';
+import { CounterAction } from './state/actions';
 
 @Component({
   selector: 'app-counter',
@@ -8,7 +10,7 @@ import { Store } from '@ngrx/store';
   template: `
     <div>
       <button (click)="decrement()" class="btn btn-primary">-</button>
-      <span>{{ current }}</span>
+      <span>{{ current() }}</span>
       <button (click)="increment()" class="btn btn-primary">+</button>
     </div>
   `,
@@ -20,13 +22,13 @@ export class CounterComponent {
   //   this.store = store;
   // }}
   constructor(private store: Store) {}
-  current = 0;
+  current = this.store.selectSignal(counterFeature.selectCurrent);
 
   increment() {
-    this.current += 1;
+    this.store.dispatch(CounterAction.incremented());
   }
 
   decrement() {
-    this.current -= 1;
+    this.store.dispatch(CounterAction.decremented());
   }
 }
