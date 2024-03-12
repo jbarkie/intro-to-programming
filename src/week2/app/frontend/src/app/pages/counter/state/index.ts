@@ -14,6 +14,7 @@ export const counterFeature = createFeature({
   reducer: createReducer(
     initialState,
     on(CounterAction.incremented, (state) => ({ current: state.current + 1 })),
-    on(CounterAction.decremented, (state) => ({ current: state.current - 1 }))
+    on(CounterAction.decremented, (state) => ({ current: state.current - 1 })),
+    on(CounterAction.reset, (state) => initialState)
   ),
 });

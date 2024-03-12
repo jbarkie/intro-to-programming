@@ -10,8 +10,17 @@ import { CounterAction } from './state/actions';
   template: `
     <div>
       <button (click)="decrement()" class="btn btn-primary">-</button>
-      <span>{{ current() }}</span>
+      <span class="mx-2">{{ current() }}</span>
       <button (click)="increment()" class="btn btn-primary">+</button>
+    </div>
+    <div>
+      <button
+        (click)="reset()"
+        class="btn btn-accent btn-md mt-5"
+        [disabled]="current() === 0"
+      >
+        Reset Count
+      </button>
     </div>
   `,
   styles: ``,
@@ -30,5 +39,9 @@ export class CounterComponent {
 
   decrement() {
     this.store.dispatch(CounterAction.decremented());
+  }
+
+  reset() {
+    this.store.dispatch(CounterAction.reset());
   }
 }

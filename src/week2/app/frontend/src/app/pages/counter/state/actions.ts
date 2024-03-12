@@ -5,5 +5,6 @@ export const CounterAction = createActionGroup({
   events: {
     Incremented: emptyProps(),
     Decremented: emptyProps(),
+    Reset: emptyProps(),
   },
 });
