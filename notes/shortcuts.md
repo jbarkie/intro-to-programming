@@ -17,3 +17,4 @@
 - `Ctrl+K, Ctrl+S` to surround code with a snippet
 - `Ctrl+R, R` to rename
 - `Shift+Alt+F` in VSCode to quick reformat
+- `F2` to rename in VSCode
