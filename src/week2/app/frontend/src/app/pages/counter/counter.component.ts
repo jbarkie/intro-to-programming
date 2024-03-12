@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { counterFeature } from './state';
-import { CounterAction } from './state/actions';
+import { CounterActions } from './state/actions';
 
 @Component({
   selector: 'app-counter',
@@ -34,14 +34,14 @@ export class CounterComponent {
   current = this.store.selectSignal(counterFeature.selectCurrent);
 
   increment() {
-    this.store.dispatch(CounterAction.incremented());
+    this.store.dispatch(CounterActions.incremented());
   }
 
   decrement() {
-    this.store.dispatch(CounterAction.decremented());
+    this.store.dispatch(CounterActions.decremented());
   }
 
   reset() {
-    this.store.dispatch(CounterAction.reset());
+    this.store.dispatch(CounterActions.reset());
   }
 }
