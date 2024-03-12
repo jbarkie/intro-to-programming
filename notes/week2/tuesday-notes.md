@@ -1,0 +1,29 @@
+# Tuesday. March 12 Notes
+- Semantic Versioning
+- Learned about state managements and its evolution in frontend frameworks
+    - Flux, Redux, NgRx
+- Added NgRx state management with new simple "counter" feature
+    - Added global store to keep track of application state
+    - Added specific counter state to keep track of just the local component state
+- Learned how to use Angular DevTools and Redux DevTools
+## Key Takeaways
+- Semantic versioning - e.g., v1.2.3
+    - Major - one or more (possible) breaking changes
+    - Minor - backward compatible new features (new methods, classes, etc.)
+    - Patch - backward compatible bug fixes
+- Difference between `package.json` and `package-lock.json`
+    - `package.json` - mandatory and lists dependencies required for given project
+    - `package-lock.json` - auto-generated and lists specific versions installed
+- State - the data in memory of our application
+- "Stateful user interface"
+    - Native apps (iOS, Android)
+    - Cross-platform
+        - MAUI - .NET 6 UI framework with code reusability and platform-agnostic approach 
+            - Can be used to develop high-performance applications for Android and iOS, as well as Windows and macOS
+        - Electron (VSCode, Discord) - app runtime for writing native Chromium apps and rendering the interface and node.js for local APIs
+        - Web
+- Backing service - attached resource / service on which an application relies for its functionality 
+    - Helps to scale up
+- Local retention of state (OOP) doesn't work
+    - Really should have no data in a component or service that's "owned" by that thing
+    - Make all application state "global" - but immutable so it can't be changed
