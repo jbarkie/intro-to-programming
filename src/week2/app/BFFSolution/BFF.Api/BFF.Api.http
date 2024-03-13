@@ -4,3 +4,9 @@ GET {{BFF.Api_HostAddress}}/status
 Accept: application/json
 
 ###
+
+POST {{BFF.Api_HostAddress}}/todos
+Content-Type: application/json
+{
+  "description": "Buy Beer"
+}
