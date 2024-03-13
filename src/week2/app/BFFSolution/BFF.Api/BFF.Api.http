@@ -7,6 +7,15 @@ Accept: application/json
 
 POST {{BFF.Api_HostAddress}}/todos
 Content-Type: application/json
+
 {
-  "description": "Buy Beer"
+  "description": "Buy Beer",
+  "priority": 1,
+  "dueDate": "2024-03-13T16:34:36.734Z"
 }
+###
+
+GET {{BFF.Api_HostAddress}}/todos
+Accept: application/json
+
+####
