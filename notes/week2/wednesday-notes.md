@@ -2,6 +2,10 @@
 - Created new ASP.NET Core Web API for our Angular frontend
     - Controller based API and routing
         - Last API did not use controllers
+- Learned history of ASP.NET MVC
+    - "Active Server Pages"
+- Added new records for defining the structure of the CreateTodos Request/Response
+    - Defined endpoint in TodosController
 ## Key Takeaways
 - SOAP - Simple Object Access Protocol for exchanging structured information in the implementation of web services
     - XML formatting
@@ -9,3 +13,5 @@
     - Largely replaced by REST architecture (thought to serve more than 70% of public APIs today)
 - "Backend for Frontend" - adapter APIs
 - "Connascent" - form of coupling - "born, lives, and dies together"
+- Anytime you do anything I/O bound - must use Async/Await
+    - Communicating over network, to database, etc.
