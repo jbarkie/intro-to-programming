@@ -6,6 +6,21 @@
     - "Active Server Pages"
 - Added new records for defining the structure of the CreateTodos Request/Response
     - Defined endpoint in TodosController
+- Learned how to use EntityFrameworkCore to communicate with a database
+    - Must add user input from request into an entity, perform validation, then write to database
+        - Don't return entity from database - filter out the response from corresponding entity first
+    - Check that the SQL statements being executed by .NET (language integrated query) are valid and make sense
+- `add-migration "name"` and `update-database` in Package Manager Console 
+    - Manage database migration
+        - Update database schema in a controlled and versioned manner
+        - Can apply schema changes without losing data and can be version controlled alongside code that uses the database
+- Added input validation to user data
+    - Can use attributes, Fluent, more
+    - How to return a bad request and when should you provide further details to user regarding the error
+        - Check the ModelState 
+- Learned Async/Await
+    - Async methods always have names that end with Async
+        - Always return a `Task<T>`
 ## Key Takeaways
 - SOAP - Simple Object Access Protocol for exchanging structured information in the implementation of web services
     - XML formatting
@@ -15,3 +30,18 @@
 - "Connascent" - form of coupling - "born, lives, and dies together"
 - Anytime you do anything I/O bound - must use Async/Await
     - Communicating over network, to database, etc.
+- Get a grasp on why we're solving problems with a particular solution
+    - Then you can find a selling point for whatever proposal you have
+    - Propose a set number of solutions
+    - Talk to as many people individually as you can and see what they think
+        - People feel less comfortable sharing opinions in group settings
+    - Get a senior dev to walk through the code with you
+        - At your pace, so you can stop and ask questions when you need it
+        - Start by looking at tests - they reveal the intention
+            - Set some breakpoints and step through it
+- "A Curious Conversation"
+    - Start conversations with other people in different areas/roles
+        - What do they like? What do they dislike?
+            - Note the patterns
+- Lee's Coding Power Hours & other events
+    - Angular office hours? Accessibility office hours?
