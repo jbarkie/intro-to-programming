@@ -1,5 +1,6 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
 import { TodoEntity } from '../types';
+import { TodoListItem } from '../models';
 
 // Command - order ("do this thing") - usually expects something specific to happen as a result
 export const TodoCommands = createActionGroup({
@@ -14,6 +15,7 @@ export const TodoEvents = createActionGroup({
   source: 'Todo Events',
   events: {
     'Todo Item Added': props<{ payload: string }>(),
+    'Todo Item Marked Complete': props<{ payload: TodoListItem }>(),
   },
 });
 
