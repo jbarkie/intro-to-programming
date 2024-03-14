@@ -9,7 +9,7 @@ namespace Bff.Api.Todos;
 public class TodosController(TodosDataContext _context) : ControllerBase
 {
     [HttpPost("/completed-todos")]
-    public async Task<ActionResult> MarkTodoComplete([FromBody] CreateTodoResponse request)
+    public async Task<ActionResult> ToggleTodoCompleted([FromBody] CreateTodoResponse request)
     {
         // see if we have it, if not, return a BadRequest
         var todo = await _context.Todos.SingleOrDefaultAsync(x => x.Id == request.Id);
@@ -17,8 +17,8 @@ public class TodosController(TodosDataContext _context) : ControllerBase
         {
             return BadRequest("No Todo found to mark complete.");
         }
-        // if we do, mark it complete, save it, and then return Ok
-        todo.Completed = true;
+        // if we do, toggle 'Completed', save it, and then return Ok
+        todo.Completed = !todo.Completed;
         await _context.SaveChangesAsync();
         return NoContent();
     }
