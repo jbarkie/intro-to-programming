@@ -30,6 +30,18 @@ export class TodoEffects {
     )
   );
 
+  markCompleted$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TodoEvents.todoItemMarkedComplete),
+      mergeMap(({ payload }) =>
+        this.httpClient.post(this.baseUrl + '/completed-todos', payload).pipe(
+          map(() => ({ ...payload, completed: true })),
+          map((payload) => TodoDocuments.todo({ payload }))
+        )
+      )
+    )
+  );
+
   // load the todos - when we get that command, go to the API, get the todos, and return the list of todos to the reducer
   loadTodos$ = createEffect(() =>
     this.actions$.pipe(
