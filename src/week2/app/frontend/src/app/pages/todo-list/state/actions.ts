@@ -15,7 +15,7 @@ export const TodoEvents = createActionGroup({
   source: 'Todo Events',
   events: {
     'Todo Item Added': props<{ payload: string }>(),
-    'Todo Item Marked Complete': props<{ payload: TodoListItem }>(),
+    'Todo Item Completed Toggled': props<{ payload: TodoListItem }>(),
   },
 });
 

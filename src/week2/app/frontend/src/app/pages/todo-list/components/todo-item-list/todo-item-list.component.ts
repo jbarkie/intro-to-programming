@@ -62,7 +62,7 @@ export class TodoItemListComponent {
   private store = inject(Store);
 
   markComplete(item: TodoListItem) {
-    this.store.dispatch(TodoEvents.todoItemMarkedComplete({ payload: item }));
+    this.store.dispatch(TodoEvents.todoItemCompletedToggled({ payload: item }));
   }
   markIncomplete(item: TodoListItem) {
     item.completed = false;

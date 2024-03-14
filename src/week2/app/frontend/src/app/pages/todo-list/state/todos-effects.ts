@@ -30,12 +30,12 @@ export class TodoEffects {
     )
   );
 
-  markCompleted$ = createEffect(() =>
+  toggleCompleted$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(TodoEvents.todoItemMarkedComplete),
+      ofType(TodoEvents.todoItemCompletedToggled),
       mergeMap(({ payload }) =>
         this.httpClient.post(this.baseUrl + '/completed-todos', payload).pipe(
-          map(() => ({ ...payload, completed: true })),
+          map(() => ({ ...payload, completed: !payload.completed })),
           map((payload) => TodoDocuments.todo({ payload }))
         )
       )
