@@ -21,7 +21,7 @@ public class TodosController(TodosDataContext _context) : ControllerBase
                 Priority = t.Priority,
             }).ToListAsync();
         var response = new GetTodoListResponse { List = list };
-        return Ok(new { list = response });
+        return Ok(response);
     }
 
     [HttpPost("/todos")]
