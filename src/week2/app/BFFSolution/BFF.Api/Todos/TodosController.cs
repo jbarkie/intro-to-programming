@@ -9,9 +9,9 @@ namespace Bff.Api.Todos;
 public class TodosController(TodosDataContext _context) : ControllerBase
 {
     [HttpGet("/todos")]
-    public async Task<IActionResult> GetAllTodosAsync()
+    public async Task<ActionResult<GetTodoListResponse>> GetAllTodosAsync()
     {
-        var response = await _context.Todos
+        var list = await _context.Todos
             .OrderBy(t => t.CreatedDate)
             .Select(t => new CreateTodoResponse
             {
@@ -20,6 +20,7 @@ public class TodosController(TodosDataContext _context) : ControllerBase
                 DueDate = t.DueDate,
                 Priority = t.Priority,
             }).ToListAsync();
+        var response = new GetTodoListResponse { List = list };
         return Ok(new { list = response });
     }
 
