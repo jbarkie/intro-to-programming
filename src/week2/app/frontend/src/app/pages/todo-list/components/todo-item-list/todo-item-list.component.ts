@@ -1,6 +1,8 @@
-import { Component, input } from '@angular/core';
-import { TodoListItem } from '../../models';
 import { NgClass } from '@angular/common';
+import { Component, inject, input } from '@angular/core';
+import { TodoListItem } from '../../models';
+import { Store } from '@ngrx/store';
+import { TodoEvents } from '../../state/actions';
 
 @Component({
   selector: 'app-todo-item-list',
@@ -8,6 +10,7 @@ import { NgClass } from '@angular/common';
   imports: [NgClass],
   template: `
     @if(list().length === 0) {
+    <!-- <app-alert-information message="You have nothing on your Todo List!" /> -->
     <div role="alert" class="alert alert-info">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -56,9 +59,10 @@ import { NgClass } from '@angular/common';
 export class TodoItemListComponent {
   // @Input({ required: true }) list: TodoListItem[] = [];
   list = input.required<TodoListItem[]>();
+  private store = inject(Store);
 
   markComplete(item: TodoListItem) {
-    item.completed = true;
+    this.store.dispatch(TodoEvents.todoItemMarkedComplete({ payload: item }));
   }
   markIncomplete(item: TodoListItem) {
     item.completed = false;
