@@ -3,30 +3,14 @@ import { Component, inject, input } from '@angular/core';
 import { TodoListItem } from '../../models';
 import { Store } from '@ngrx/store';
 import { TodoEvents } from '../../state/actions';
+import { AlertInformationComponent } from '../../../../components/alert-information/alert-information.component';
 
 @Component({
   selector: 'app-todo-item-list',
   standalone: true,
-  imports: [NgClass],
   template: `
     @if(list().length === 0) {
-    <!-- <app-alert-information message="You have nothing on your Todo List!" /> -->
-    <div role="alert" class="alert alert-info">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        class="stroke-current shrink-0 w-6 h-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        ></path>
-      </svg>
-      <span>You Have Nothing on your Todo List! Party!</span>
-    </div>
+    <app-alert-information message="You have nothing on your Todo List!" />
     }
     <ul>
       @for(item of list(); track item.id) {
@@ -55,6 +39,7 @@ import { TodoEvents } from '../../state/actions';
     </ul>
   `,
   styles: ``,
+  imports: [NgClass, AlertInformationComponent],
 })
 export class TodoItemListComponent {
   // @Input({ required: true }) list: TodoListItem[] = [];
