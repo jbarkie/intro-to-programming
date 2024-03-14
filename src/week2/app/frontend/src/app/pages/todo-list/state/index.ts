@@ -3,10 +3,12 @@ import {
   createFeature,
   createReducer,
   createSelector,
+  on,
   select,
 } from '@ngrx/store';
 import { TodoEntity } from '../types';
 import { TodoListItem } from '../models';
+import { TodoDocuments } from './actions';
 
 export interface TodosState extends EntityState<TodoEntity> {}
 
@@ -14,7 +16,10 @@ const adapter = createEntityAdapter<TodoEntity>();
 const initialState: TodosState = adapter.getInitialState();
 export const todosFeature = createFeature({
   name: 'todos',
-  reducer: createReducer(initialState),
+  reducer: createReducer(
+    initialState,
+    on(TodoDocuments.todos, (s, a) => adapter.setAll(a.payload, s))
+  ),
   extraSelectors: ({ selectTodosState }) => {
     const { selectAll } = adapter.getSelectors();
     const todosArray = createSelector(selectTodosState, (s) => selectAll(s));
