@@ -19,7 +19,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
         role="tab"
         class="tab"
         [routerLinkActive]="['tab-active']"
-        >Todo List</a
+        >To-do List</a
       >
       <a
         routerLink="/counter"
