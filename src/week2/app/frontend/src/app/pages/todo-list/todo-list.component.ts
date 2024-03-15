@@ -12,8 +12,10 @@ import { TodoCommands } from './state/actions';
   standalone: true,
   template: `
     <section>
-      <h2 class="text-2xl font-bold">Your Todo List</h2>
-      <button (click)="reload()" class="btn btn-sm btn-primary">Refresh</button>
+      <h2 class="text-2xl font-bold">Your To-do List</h2>
+      <button (click)="reload()" class="btn btn-sm btn-primary mt-2">
+        Refresh
+      </button>
     </section>
     @if(loaded()) {
     <div>
