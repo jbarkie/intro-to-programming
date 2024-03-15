@@ -19,8 +19,11 @@ import { AlertInformationComponent } from '../../../../components/alert-informat
           <span [ngClass]="{ 'line-through': item.completed }">{{
             item.description
           }}</span>
-          <span>Due Date: {{ item.dueDate?.toString() }}</span>
-          <span>Priority: {{ item.priority?.toString() }}</span>
+          @if (item.dueDate != null) {
+          <span>Due Date: {{ toDate(item.dueDate.toString()) }}</span>
+          } @if (item.priority != null) {
+          <span>Priority: {{ item.priority.toString() }}</span>
+          }
           <div class="card-actions justify-end">
             @if(item.completed === false) {
             <button
@@ -53,5 +56,9 @@ export class TodoItemListComponent {
 
   toggleCompleted(item: TodoListItem) {
     this.store.dispatch(TodoEvents.todoItemCompletedToggled({ payload: item }));
+  }
+
+  toDate(dateString: string) {
+    return dateString === null ? '' : new Date(dateString).toDateString();
   }
 }

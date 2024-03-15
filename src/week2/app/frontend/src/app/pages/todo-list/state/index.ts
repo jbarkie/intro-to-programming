@@ -37,6 +37,8 @@ export const todosFeature = createFeature({
               id: t.id,
               completed: t.completed,
               description: t.description,
+              dueDate: t.dueDate,
+              priority: t.priority,
             } as TodoListItem)
         )
       ),
