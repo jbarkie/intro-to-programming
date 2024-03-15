@@ -19,14 +19,19 @@ import { AlertInformationComponent } from '../../../../components/alert-informat
           <span [ngClass]="{ 'line-through': item.completed }">{{
             item.description
           }}</span>
+          <span>Due Date: {{ item.dueDate?.toString() }}</span>
+          <span>Priority: {{ item.priority?.toString() }}</span>
           <div class="card-actions justify-end">
             @if(item.completed === false) {
-            <button (click)="markComplete(item)" class="btn btn-sm btn-primary">
+            <button
+              (click)="toggleCompleted(item)"
+              class="btn btn-sm btn-primary"
+            >
               X
             </button>
             } @else {
             <button
-              (click)="markIncomplete(item)"
+              (click)="toggleCompleted(item)"
               class="btn btn-sm btn-accent"
             >
               +
@@ -46,10 +51,7 @@ export class TodoItemListComponent {
   list = input.required<TodoListItem[]>();
   private store = inject(Store);
 
-  markComplete(item: TodoListItem) {
+  toggleCompleted(item: TodoListItem) {
     this.store.dispatch(TodoEvents.todoItemCompletedToggled({ payload: item }));
-  }
-  markIncomplete(item: TodoListItem) {
-    item.completed = false;
   }
 }
