@@ -60,7 +60,9 @@ import { TodoEntity } from '../../types';
         @if (priority.invalid && (priority.touched || priority.dirty)) {
         <p>Priority must be Low or High.</p>
         }
-        <button type="submit" class="btn btn-md btn-primary ">Add Item</button>
+        <button type="submit" class="btn btn-md btn-primary mb-3 ">
+          Add Item
+        </button>
       </div>
     </form>
   `,
