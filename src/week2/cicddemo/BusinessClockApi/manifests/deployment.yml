@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: business-clock-api
+  namespace: hypertheory
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: business-clock-api
+  template:
+    metadata:
+      labels:
+        app: business-clock-api
+    spec:
+      containers:
+      - name: business-clock-api
+        image: business-clock-api:v2
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080

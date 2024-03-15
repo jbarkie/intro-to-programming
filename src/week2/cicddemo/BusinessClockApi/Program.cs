@@ -17,9 +17,9 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/", () => {
     var now = DateTime.Now;
     if(now.DayOfWeek == DayOfWeek.Sunday || now.DayOfWeek == DayOfWeek.Saturday) {
-        return Results.Ok(new { currentlyOpen  =false});
+        return Results.Ok(new { currentlyOpen  =false, openNext = "tomorrow"});
     } else {
-        return Results.Ok(new { currentlyOpen  =true});
+        return Results.Ok(new { currentlyOpen  =true, openNext="Monday"});
     }
 });
 
