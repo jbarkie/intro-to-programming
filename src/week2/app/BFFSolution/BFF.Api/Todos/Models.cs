@@ -6,7 +6,7 @@ public record CreateTodoRequest
 {
     [Required, MinLength(3), MaxLength(124)]
     public string Description { get; set; } = string.Empty;
-    public DateTimeOffset? DueDate { get; set; }
+    public DateTime? DueDate { get; set; }
     public TodoPriority? Priority { get; set; } // nullable
 }
 
@@ -18,7 +18,7 @@ public record CreateTodoResponse
     public Guid Id { get; set; }
     [Required, MinLength(3), MaxLength(124)]
     public string Description { get; set; } = string.Empty;
-    public DateTimeOffset? DueDate { get; set; }
+    public DateTime? DueDate { get; set; }
     public TodoPriority? Priority { get; set; } // nullable
     public bool Completed { get; set; }
 }

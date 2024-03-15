@@ -24,7 +24,11 @@ export class TodoEffects {
       ofType(TodoEvents.todoItemAdded),
       mergeMap((a) =>
         this.httpClient
-          .post<TodoEntity>(this.baseUrl + '/todos', { description: a.payload })
+          .post<TodoEntity>(this.baseUrl + '/todos', {
+            description: a.description,
+            dueDate: a.dueDate,
+            priority: a.priority,
+          })
           .pipe(map((payload) => TodoDocuments.todo({ payload })))
       )
     )
